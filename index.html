@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Super Mario</title>
+</head>
+<body>
+
+  <div id="inicio">
+    <button id="iniciar">Iniciar Jogo</button>
+    <button id="como-jogar">Como Jogar</button>
+  </div>
+
+  <div id="modal-como-jogar" class="modal-overlay">
+    <div class="modal-conteudo">
+      <h2>Como Jogar</h2>
+      <p>Pressione <strong>ESPAÇO</strong> (PC)</p>
+      <p>ou</p>
+      <p><strong>TOQUE NA TELA</strong> (Celular)</p>
+      <p>para pular e desviar dos canos!</p>
+      <button id="fechar-modal">OK!</button>
+    </div>
+  </div>
+  
+  <div id="jogo">
+    <div id="placar">PONTOS: 0</div>
+    <img src="images/nuvem.png" id="nuvem">
+    <img src="images/correndo.gif" id="mario">
+    <img src="images/cano.png" id="cano">
+    <div id="grama"></div>
+  </div>
+  
+  <div id="final">
+  </div>
+  
+  <audio id="somPulo" src="audios/pulo.mp3" preload="auto"></audio>
+  <audio id="somDerrota" src="audios/derrota.mp3" preload="auto"></audio>
+  
+  <script src="scripts/script.js"></script>
+</body>
+</html>

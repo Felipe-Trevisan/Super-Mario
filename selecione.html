@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecione seu personagem</title>
+</head>
+<body>
+    <div id="root"></div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            scrollbar-color: blue;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #root {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 85vw;
+            justify-content: center;
+        }
+
+        .pokemon-button {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            background-color: #87CEEB; 
+        }
+    </style>
+    <script>
+        const container = document.getElementById('root');
+
+        function criarBotaoMario() {
+            const button = document.createElement('button');
+            button.classList.add('pokemon-button');
+            
+            button.style.backgroundImage = `url('images/correndo.gif')`; 
+
+            button.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+
+            container.appendChild(button);
+        }
+
+        async function buscarPokemons() {
+            try {
+                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+                const data = await response.json();
+
+                const pokemonPromises = data.results.map(async (pokemon) => {
+                    const pokemonResponse = await fetch(pokemon.url);
+                    const pokemonData = await pokemonResponse.json();
+
+                    const button = document.createElement('button');
+                    button.classList.add('pokemon-button');
+                    button.style.backgroundImage = `url(${pokemonData.sprites.front_default})`;
+
+                    button.addEventListener('click', () => {
+                        const targetUrl = `index.html?image=${encodeURIComponent(pokemonData.sprites.front_default)}`;
+                        window.location.href = targetUrl;
+                    });
+
+                    container.appendChild(button);
+                });
+
+                await Promise.all(pokemonPromises);
+            } catch (error) {
+                console.error('Erro ao buscar os Pokémon:', error);
+            }
+        }
+
+        criarBotaoMario();
+        buscarPokemons();
+    </script>

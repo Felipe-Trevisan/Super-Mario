@@ -1,0 +1,237 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  display: flex;
+  justify-content: center;   
+  align-items: center;       
+  margin: 0;                 
+  height: 100vh;             
+  overflow: hidden;          
+  background-color: #87CEEB;
+}
+
+div#inicio {
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  background-image: url(../Images/fundojogo.jpg); 
+  background-repeat: no-repeat;  
+  background-size: cover;        
+  background-position: center;  
+  width: 100vw;                  
+  height: 100vh;   
+  flex-direction: column;         
+}
+
+div#jogo {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#placar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  text-shadow: 2px 2px #333;
+  z-index: 100;
+}
+
+div#inicio button, div#inicio a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 60px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px #000;
+  cursor: pointer;
+  margin: 10px;
+  text-decoration: none;
+}
+
+div#inicio button:hover, div#inicio a:hover {
+  color: #FFFF00;
+}
+
+@keyframes animacaocano {
+  from {
+    left: 100%;
+  }
+  to {
+    left: -100px;
+  }
+}
+
+@keyframes animacaoPulo {
+  0% {
+    bottom: 10px;
+  }
+  50% {
+    bottom: 130px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
+.pulo {
+  animation: animacaoPulo 600ms ease-out;
+}
+
+#mario {
+  position: absolute;
+  bottom: 10px;
+  width: 70px;
+  height: 80px;
+}
+
+#cano {
+  position: absolute;
+  bottom: 10px;
+  left: 100%;
+  animation: animacaocano 3s infinite linear;
+  width: 60px;
+  height: 70px;
+}
+
+@keyframes animacaonuvem {
+  from{
+    left: 100%;
+  }
+  to{
+    left: -600px;
+  }
+}
+
+#nuvem{
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  bottom: 50%;
+  left: 100%;
+  animation: animacaonuvem 12s infinite linear;
+}
+
+#grama{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  bottom: 0;
+  background-color: green;
+}
+
+div#final a {
+  text-decoration: none;
+  text-transform: none;
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px #000;
+  margin-top: 50px;
+  padding: 15px 30px;
+  background: #F8D030;
+  border: 4px solid #000;
+  color: #333;
+  text-shadow: none;
+}
+
+div#final a:hover {
+  background: #E8B010;
+}
+
+div#morreu{
+  position: relative;
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  background-image: url(../Images/bowserfundo.webp); 
+  background-repeat: no-repeat;  
+  background-size: cover;        
+  background-position: center;  
+  width: 100vw;                  
+  height: 100vh;   
+  flex-direction: column;  
+  overflow: hidden;
+}
+
+div#final{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#bowser1{
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  left: 0;
+  bottom: 0;
+}
+
+#bowser2{
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: 0;
+  bottom: 0;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background: #5EADF1;
+  border: 8px solid #000;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px #333;
+}
+
+.modal-conteudo h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.modal-conteudo p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+#fechar-modal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #F8D030;
+  border: 4px solid #000;
+  font-family: 'Press Start 2P', cursive;
+  cursor: pointer;
+  color: #333;
+  text-shadow: none;
+}
+
+#fechar-modal:hover {
+  background: #E8B010;
+}
